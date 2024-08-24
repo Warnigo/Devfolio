@@ -1,12 +1,7 @@
 {
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
 
   "explorer.confirmDelete": true,
 
@@ -19,5 +14,14 @@
     "typescript": "typescriptreact"
   },
   "emmet.triggerExpansionOnTab": true,
-  "cSpell.words": ["svgr", "tailwindcss", "Warfurious", "Warnigo", "webfolio"]
+  "cSpell.words": [
+    "nextjs",
+    "stylelint",
+    "svgr",
+    "tailwindcss",
+    "tanstack",
+    "Warfurious",
+    "Warnigo",
+    "webfolio"
+  ]
 }
