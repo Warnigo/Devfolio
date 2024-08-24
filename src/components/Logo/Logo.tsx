@@ -1,4 +1,6 @@
+import Link from 'next/link'
 import BrandLogo from 'public/logo.svg'
+import { ROUTES } from '@/constants'
 import { cn } from '@/lib'
 
 type Props = {
@@ -6,7 +8,7 @@ type Props = {
 }
 
 export const Logo = ({ className }: Props) => (
-  <div className={'flex items-center justify-center'}>
+  <Link href={ROUTES.home} className={'flex items-center justify-center'}>
     <BrandLogo className={cn(className)} />
-  </div>
+  </Link>
 )
