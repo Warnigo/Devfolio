@@ -4,6 +4,8 @@
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
 
   "explorer.confirmDelete": true,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
 
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "always"
@@ -15,6 +17,7 @@
   },
   "emmet.triggerExpansionOnTab": true,
   "cSpell.words": [
+    "lucide",
     "nextjs",
     "stylelint",
     "svgr",
