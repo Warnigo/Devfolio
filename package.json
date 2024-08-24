@@ -26,11 +26,6 @@
     "sort:packages": "node scripts/sort-packages.mjs",
     "check:packages": "node scripts/check-package-versions.mjs"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
       "eslint --max-warnings=0",
