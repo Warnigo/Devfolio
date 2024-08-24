@@ -1,36 +1,125 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Stack technologies
 
-## Getting Started
+- [React](https://react.dev/learn) + [Typescript](https://www.typescriptlang.org/docs/)
+- [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) - Small, fast, and scalable bearbones state management solution
+- [Shadcn UI](https://ui.shadcn.com) - As ready-made UI components
+- [React Hook Form](https://react-hook-form.com/) - Performant, flexible and extensible forms with
+- [React Query](https://tanstack.com/query) - Automatically caches data from your queries, reducing the need for redundant network requests and improving application performance.
+- [Tailwindcss](https://tailwindcss.com) - For styles
+- [Nextjs](https://Nextjs.org/) - framework for SSR
 
-First, run the development server:
+> [!IMPORTANT]  
+> This code structure was created using FSD (Feature-Sliced Design). Please read the FSD documentation before making any changes. Tailwind CSS and shadcn-ui are used for UI components. Define any CSS units such as px, rem, etc., in globals.css. React Query is used for API integration.
+
+## Basic requirements for the project
+
+> [!NOTE]
+> Vesion Node +v20\*
+
+## For Developers
 
 ```bash
+npm i
+# and
 npm run dev
 # or
+yarn install
+# and
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Run the project at [localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### To launch the project in the production environment, run the command:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+npm i
+npm run build
+npm run dev
+# or
+yarn install
+yarn build
+yarn dev
+```
 
-## Learn More
+run the project at [localhost:3000](http://localhost:3000)
 
-To learn more about Next.js, take a look at the following resources:
+> [!NOTE]
+> You need to create .env.development following the example of .env.example so that all parameters are
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project structure (we will describe large sections separately inside the folder)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
+Root
+├── .hasky - Prehooks for commits
+│
+├── public - All public files that will be included in the production build
+│
+├── src - Development folder
+│   │
+│   ├── api- Describes all back requests indicating the Endpoint for firebase
+│   │
+│   ├── app - Here is the entire project structure by structure
+│   │
+│   ├── assets - All images of the project should be in this folder
+│   │
+│   ├── components - Components common to the project that are not included in the ui
+│   │
+│   ├── constants - Common constants for the project that are used throughout the project
+|   |
+│   ├── helpers - Contains utility functions and code for auxiliary tasks throughout the project
+│   │
+│   ├── layouts - For all layouts of the project
+│   │
+│   ├── lib - Contains shared utility functions and reusable components.
+|   |
+│   ├── locales - All project language words are formed in this folder!
+|   |
+│   ├── modules - All modules of the project, that is, all pages, the main code is created in this folder
+|   |
+│   ├── providers - All project providers are described and formed in this folder
+│   │
+│   ├── shared - Components that are used throughout the project
+│   │
+│   ├── stores - State management is written in this folder
+│   │
+│   ├── styles - For globals css
+│   │
+│   ├── types- General types by src
+│   │
+│   └── widgets- Contains reusable UI components and widget implementations
+│
+├── .env.example - Example of environment variables for production.
+├── .eslintrc.json - Configuration for ESLint.
+├── .gitignore - Specifies which files and directories to ignore in Git.
+├── .npmrc - Configuration for npm, including registry settings and package behaviors.
+├── .prettierignore - Specifies which files and directories to ignore for Prettier formatting.
+├── tailwind.config.ts - Configuration for tailwind.
+├── .prettierrc - Configuration for Prettier formatting.
+├── next.config.ts - Configuration settings for Next.js.
+├── package.json - List of project dependencies and scripts.
+├── postcss.config.cjs - Configuration for PostCSS.
+└── tsconfig.json - Configuration for TypeScript
+```
 
-## Deploy on Vercel
+#### ☝️ - IMPORTANT:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. The names of folders and files are always in notation (kebab-case), except for components that are both folders and files in notation (PascalCase)
+2. From the component, everything always imports from the index.ts file
+3. Styles are always in tailwindcss
+4. Interfaces in types.ts
+5. constants in constants.tsx
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Code Review
+
+    1) If the code is not ready, then mark your PR as “Draft” with the “Mark as draft” button
+    2) Considers Architectural, Structural and other agreements on the design of PR to be critical and for this is not passed further than PR
+    3) The remaining comments are purely advisory in nature and are not a blocker for PR
+    4) Any controversial issue is discussed by the team and if there is no violation of points 1-2, then this dispute is not blocked!
+
+## ☝️ - IMPORTANT:
+
+> - To type everything and anything that is possible is not to use ANY!
+> - any enemy! - always discuss exceptions with the team!
+> - avoid console.log if possible, in extreme cases console.error console.warn
+> - mutate values ​​outside the mobx store (use exclusively actions from the mobx store for such things.)
