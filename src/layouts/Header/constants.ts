@@ -29,3 +29,18 @@ export const switchMode = [
     title: 'System',
   },
 ]
+
+export const switchLang = [
+  {
+    lang: 'en',
+    title: 'English',
+  },
+  {
+    lang: 'ru',
+    title: 'Russian',
+  },
+  {
+    lang: 'uz',
+    title: 'Uzbek',
+  },
+]

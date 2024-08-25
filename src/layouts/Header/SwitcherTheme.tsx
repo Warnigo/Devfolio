@@ -9,10 +9,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui'
+import { cn } from '@/lib'
 import { switchMode } from './constants'
 
-export function Switcher() {
-  const { setTheme } = useTheme()
+export function SwitcherTheme() {
+  const { setTheme, theme } = useTheme()
 
   const handleSwitch = (mode: string) => {
     setTheme(mode)
@@ -27,9 +28,13 @@ export function Switcher() {
         </Button>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" className="flex flex-col gap-1">
         {switchMode.map(({ title, mode }) => (
-          <DropdownMenuItem key={mode} onClick={() => handleSwitch(mode)}>
+          <DropdownMenuItem
+            key={mode}
+            onClick={() => handleSwitch(mode)}
+            className={theme === mode ? cn('bg-accent text-accent-foreground') : ''}
+          >
             {title}
           </DropdownMenuItem>
         ))}

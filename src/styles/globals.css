@@ -5,7 +5,7 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 216 100% 4%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
@@ -32,8 +32,8 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 216 100% 4%;
+    --foreground: 210 14% 83%;
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
@@ -63,7 +63,16 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
+
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to right, #91909012 1px, transparent 1px),
+      linear-gradient(to bottom, #91909012 1px, transparent 1px);
+    background-size: 24px 24px;
   }
 }
