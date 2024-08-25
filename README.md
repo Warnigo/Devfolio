@@ -1,3 +1,8 @@
+<p align="center">
+  <a href="" target="blank"><img src="https://github.com/user-attachments/assets/c2b19a18-b8c6-4a6a-bd09-0dec90c095b8" width="200" alt="Webfolio logo" /></a>
+</p>
+
+
 ## Stack technologies
 
 - [React](https://react.dev/learn) + [Typescript](https://www.typescriptlang.org/docs/)
