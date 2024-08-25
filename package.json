@@ -19,11 +19,12 @@
     "types": "tsc --noEmit",
     "shadcn": "npx shadcn-ui@latest",
     "magic": "npx magicui-cli",
+    "aceternity": "npx aceternity-ui@latest",
     "clean": "rimraf .next && rimraf .next/cache && rimraf node_modules",
     "clean:build": "rimraf .next",
     "clean:cache": "rimraf .next/cache",
-    "json:server": "npx json-server --watch db.json --port 5001",
     "analyze:build": "ANALYZE=true next build",
+    "json:server": "npx json-server --watch db.json --port 5001",
     "sort:packages": "node scripts/sort-packages.mjs",
     "check:packages": "node scripts/check-package-versions.mjs"
   },

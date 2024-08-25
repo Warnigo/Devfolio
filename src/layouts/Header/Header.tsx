@@ -7,7 +7,7 @@ import { menu } from './constants'
 import { Switcher } from './Switcher'
 
 export const Header = () => (
-  <header className="fixed z-50 w-full">
+  <header className="fixed z-50 w-full border-b bg-background/70 bg-gradient-to-b from-background to-transparent backdrop-blur-lg">
     <div className="container flex items-center justify-between py-2">
       <div className="flex items-center gap-8">
         <Logo className="size-12 text-primary" />

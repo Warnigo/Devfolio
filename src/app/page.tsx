@@ -2,7 +2,7 @@ import { BlurIn } from '@/components/magicui'
 
 export default function Home() {
   return (
-    <div>
+    <div className="">
       <BlurIn title="home" />
 
       <p>
