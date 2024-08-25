@@ -1,6 +1,8 @@
-<p align="center">
+<div align="center">
   <a href="" target="blank"><img src="https://github.com/user-attachments/assets/f514504f-d560-4df5-b346-d09459d6cde7" width="200" alt="Webfolio logo" /></a>
-</p>
+
+  <h1 style={{ fontSize: '48px' }}>Warnigo Warfurious</h1>
+</div>
 
 ## Stack technologies
 
