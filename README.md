@@ -1,7 +1,6 @@
 <p align="center">
-  <a href="" target="blank"><img src="https://github.com/user-attachments/assets/c2b19a18-b8c6-4a6a-bd09-0dec90c095b8" width="200" alt="Webfolio logo" /></a>
+  <a href="" target="blank"><img src="https://github.com/user-attachments/assets/f514504f-d560-4df5-b346-d09459d6cde7" width="200" alt="Webfolio logo" /></a>
 </p>
-
 
 ## Stack technologies
 
@@ -19,7 +18,7 @@
 ## Basic requirements for the project
 
 > [!NOTE]
-> Vesion Node +v20\*
+> Version Node +v20\*
 
 ## For Developers
 
