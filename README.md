@@ -8,7 +8,7 @@
 - [Tailwindcss](https://tailwindcss.com) - For styles
 - [Nextjs](https://Nextjs.org/) - framework for SSR
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > This code structure was created using FSD (Feature-Sliced Design). Please read the FSD documentation before making any changes. Tailwind CSS and shadcn-ui are used for UI components. Define any CSS units such as px, rem, etc., in globals.css. React Query is used for API integration.
 
 ## Basic requirements for the project
@@ -75,7 +75,7 @@ Root
 |   |
 │   ├── locales - All project language words are formed in this folder!
 |   |
-│   ├── modules - All modules of the project, that is, all pages, the main code is created in this folder
+│   ├── pages - All page of the project, that is, all pages, the main code is created in this folder
 |   |
 │   ├── providers - All project providers are described and formed in this folder
 │   │
