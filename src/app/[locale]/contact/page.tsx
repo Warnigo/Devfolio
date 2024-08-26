@@ -1,13 +1,13 @@
 import { getI18n } from '@/locales/server'
-import { About } from '@/pages/About'
+import { Contact } from '@/pages/Contact'
 import { getMetadata } from '@/utils'
 
 export async function generateMetadata() {
   const t = await getI18n()
 
-  return getMetadata(t('about'))
+  return getMetadata(t('contact'))
 }
 
-export default function AboutPage() {
-  return <About />
+export default function ContactPage() {
+  return <Contact />
 }

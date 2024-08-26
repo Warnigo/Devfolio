@@ -6,4 +6,6 @@ export default {
     goback: 'Go back',
     backHome: 'Back home',
   },
+  about: 'About',
+  contact: 'Contact',
 } as const
