@@ -1,5 +1,11 @@
 export default {
-  hello: 'Hello',
+  home: {
+    title: 'From Creating Stunning Interfaces to Engineering Effortless User Experiences',
+    description:
+      'Revolutionizing web interactions with top-tier frontend expertise. I craft beautiful, responsive, and user-friendly applications that make a lasting impression. Partner with me to turn your ideas into reality with precision and creativity.',
+    part: 'Effortless',
+    partSecond: 'Creating',
+  },
   notFound: {
     title: '404 - Not Found',
     desc: 'The page you are looking for does not exist or has been moved.',
