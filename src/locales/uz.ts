@@ -1,9 +1,14 @@
 export default {
   home: {
-    title: 'From Creating Stunning Interfaces to Engineering Effortless User Experiences',
+    title:
+      'Chiroyli interfeyslar yaratishdan tortib, qulay foydalanuvchi tajribasini muhandislik qilishgacha',
     description:
-      'Revolutionizing web interactions with top-tier frontend expertise. I craft beautiful, responsive, and user-friendly applications that make a lasting impression. Partner with me to turn your ideas into reality with precision and creativity.',
+      "Veb interaksiyalarni yuqori darajadagi frontend tajribasi bilan inqilob qilish. Men chiroyli, moslashuvchan va foydalanuvchi uchun qulay ilovalarni yarataman, ular doimiy taassurot qoldiradi. Menga qo'shiling va g'oyalarni aniqlik va ijodkorlik bilan haqiqatga aylantiring.",
+    part: 'muhandislik',
+    partSecond: 'interfeyslar',
   },
+  frontend: 'Frontend',
+  backend: 'Backend',
   notFound: {
     title: '404 - Topilmadi',
     desc: 'Qidirayotgan sahifangiz mavjud emas yoki ko‘chirilgan.',

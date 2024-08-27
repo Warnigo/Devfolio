@@ -6,6 +6,8 @@ export default {
     part: 'Effortless',
     partSecond: 'Creating',
   },
+  frontend: 'Frontend',
+  backend: 'Backend',
   notFound: {
     title: '404 - Not Found',
     desc: 'The page you are looking for does not exist or has been moved.',

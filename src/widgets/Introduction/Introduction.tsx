@@ -79,7 +79,7 @@ const Introduction = () => {
                       className="rounded-full border-2 border-purple-600 bg-purple-100 px-4 py-2 text-sm font-semibold text-purple-600 shadow-xl md:text-base"
                       variant="outline"
                     >
-                      Badge one
+                      {t('backend')}
                     </Badge>
                   </motion.div>
                 )}
@@ -94,7 +94,7 @@ const Introduction = () => {
                       className="rounded-full border-2 border-pink-600 bg-pink-100 px-4 py-2 text-sm font-semibold text-pink-600 shadow-xl md:text-base"
                       variant="outline"
                     >
-                      Badge two
+                      {t('frontend')}
                     </Badge>
                   </motion.div>
                 )}
