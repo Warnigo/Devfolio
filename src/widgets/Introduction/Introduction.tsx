@@ -1,39 +1,27 @@
 'use client'
 
+import { FC } from 'react'
 import { motion } from 'framer-motion'
-import { Badge } from '@/components/ui'
+import { AnimateBadge } from '@/components'
+import { useIntersectionObserver } from '@/helpers/hooks'
 import { cn } from '@/lib'
 import { useI18n } from '@/locales/client'
+import {
+  containerAnimation,
+  fadeInAnimation,
+  fadeInTransition,
+  itemAnimation,
+  itemTransition,
+} from './motion'
 
-const Introduction = () => {
+const Introduction: FC = () => {
   const t = useI18n()
   const title = t('home.title')
   const parts = title.split(' ')
-
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  }
-
-  const item = {
-    hidden: { opacity: 0, y: 50 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: 'spring',
-        stiffness: 100,
-      },
-    },
-  }
+  const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 })
 
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section ref={ref} className="relative min-h-screen overflow-hidden">
       <div
         className="absolute inset-0 bg-center bg-no-repeat opacity-[0.03]"
         style={{
@@ -45,21 +33,23 @@ const Introduction = () => {
 
       <motion.div
         className="container flex min-h-screen items-center justify-center px-4 py-20"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
+        variants={fadeInAnimation}
+        initial="initial"
+        animate={isVisible ? 'animate' : 'initial'}
+        transition={fadeInTransition}
       >
         <div className="relative flex flex-col items-center justify-center gap-12">
           <motion.h1
             className="relative flex flex-wrap justify-center text-center text-5xl font-extrabold md:text-7xl lg:text-8xl lg:leading-[115px]"
-            variants={container}
+            variants={containerAnimation}
             initial="hidden"
-            animate="show"
+            animate={isVisible ? 'show' : 'hidden'}
           >
             {parts.map((part, index) => (
               <motion.span
                 key={index}
-                variants={item}
+                variants={itemAnimation}
+                transition={itemTransition}
                 className={cn(
                   'mb-2 mr-2 inline-block whitespace-pre-wrap bg-clip-text text-primary',
                   {
@@ -69,34 +59,26 @@ const Introduction = () => {
                 )}
               >
                 {part === t('home.part') && (
-                  <motion.div
+                  <AnimateBadge
                     className="absolute -left-10 -top-10 rotate-12 md:-top-20 md:right-0"
-                    initial={{ scale: 0, rotate: 45 }}
-                    animate={{ scale: 1, rotate: 12 }}
-                    transition={{ delay: 1, duration: 0.5, type: 'spring' }}
+                    classNameBadge="border-purple-600 bg-purple-100 text-purple-600"
+                    variant="outline"
+                    delay={1}
+                    rotate={12}
                   >
-                    <Badge
-                      className="rounded-full border-2 border-purple-600 bg-purple-100 px-4 py-2 text-sm font-semibold text-purple-600 shadow-xl md:text-base"
-                      variant="outline"
-                    >
-                      {t('backend')}
-                    </Badge>
-                  </motion.div>
+                    {t('backend')}
+                  </AnimateBadge>
                 )}
                 {part === t('home.partSecond') && (
-                  <motion.div
+                  <AnimateBadge
                     className="absolute -right-8 -top-10 -rotate-12 md:-right-12 md:-top-16"
-                    initial={{ scale: 0, rotate: -45 }}
-                    animate={{ scale: 1, rotate: -12 }}
-                    transition={{ delay: 1.2, duration: 0.5, type: 'spring' }}
+                    classNameBadge="border-pink-600 bg-pink-100 text-pink-600"
+                    variant="outline"
+                    delay={1.2}
+                    rotate={-12}
                   >
-                    <Badge
-                      className="rounded-full border-2 border-pink-600 bg-pink-100 px-4 py-2 text-sm font-semibold text-pink-600 shadow-xl md:text-base"
-                      variant="outline"
-                    >
-                      {t('frontend')}
-                    </Badge>
-                  </motion.div>
+                    {t('frontend')}
+                  </AnimateBadge>
                 )}
                 {part}
               </motion.span>
@@ -106,7 +88,7 @@ const Introduction = () => {
           <motion.div
             className="max-w-2xl"
             initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 1.5, duration: 0.8, type: 'spring' }}
           >
             <p className="text-center text-lg font-medium text-primary md:text-xl">

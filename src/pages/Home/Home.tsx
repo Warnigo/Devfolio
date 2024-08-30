@@ -3,8 +3,8 @@ import { WorkTogether } from '@/widgets/WorkTogether'
 
 const Home = () => (
   <>
-    <Introduction />
     <WorkTogether />
+    <Introduction />
   </>
 )
 
