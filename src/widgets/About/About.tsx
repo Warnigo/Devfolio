@@ -1,158 +1,102 @@
 'use client'
 
-import { FC, useEffect, useState } from 'react'
-import { useInView } from 'react-intersection-observer'
+import { FC, useState } from 'react'
 import Image from 'next/image'
-import { motion, useAnimation } from 'framer-motion'
-import { Briefcase, Code, User } from 'lucide-react'
-import Me from 'public/fake-face.webp'
+import { motion } from 'framer-motion'
+import Face from 'public/fake-face.webp'
+import { Button } from '@/components/ui/button'
 
-const skills = ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'GraphQL', 'Node.js']
-
-const AboutSection: FC = () => {
-  const controls = useAnimation()
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  })
-  const [activeTab, setActiveTab] = useState<'about' | 'skills' | 'experience'>('about')
-
-  useEffect(() => {
-    if (inView) {
-      controls.start('visible')
-    }
-  }, [controls, inView])
-
-  const containerVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        delay: 0.2,
-        staggerChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-    },
-  }
+const About: FC = () => {
+  const [hovered, setHovered] = useState('')
 
   return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={controls}
-      variants={containerVariants}
-      className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 p-8 text-white"
-    >
-      <motion.div variants={itemVariants} className="mb-8">
-        <Image
-          src={Me}
-          alt="Abubakir Shavkatov"
-          width={200}
-          height={200}
-          className="rounded-full border-4 border-blue-500 shadow-lg"
-        />
-      </motion.div>
-
-      <motion.h1 variants={itemVariants} className="mb-4 text-4xl font-bold">
-        Abubakir Shavkatov
-      </motion.h1>
-
-      <motion.h2 variants={itemVariants} className="mb-8 text-2xl text-blue-400">
-        Frontend Developer
-      </motion.h2>
-
-      <motion.div variants={itemVariants} className="mb-8 flex space-x-4">
-        <TabButton
-          icon={<User />}
-          label="About"
-          isActive={activeTab === 'about'}
-          onClick={() => setActiveTab('about')}
-        />
-        <TabButton
-          icon={<Code />}
-          label="Skills"
-          isActive={activeTab === 'skills'}
-          onClick={() => setActiveTab('skills')}
-        />
-        <TabButton
-          icon={<Briefcase />}
-          label="Experience"
-          isActive={activeTab === 'experience'}
-          onClick={() => setActiveTab('experience')}
-        />
-      </motion.div>
-
+    <div className="flex min-h-screen items-center justify-center bg-gray-50 p-8">
       <motion.div
-        variants={itemVariants}
-        className="w-full max-w-2xl rounded-lg bg-gray-800 p-6 shadow-xl"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="w-full max-w-6xl overflow-hidden rounded-3xl bg-white shadow-2xl"
       >
-        {activeTab === 'about' && (
-          <p className="text-lg leading-relaxed">
-            I'm a passionate frontend developer with a keen eye for creating beautiful and
-            functional user interfaces. With a strong foundation in modern web technologies, I
-            strive to build seamless and engaging digital experiences.
-          </p>
-        )}
-
-        {activeTab === 'skills' && (
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-            {skills.map((skill, index) => (
-              <motion.div
-                key={skill}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="rounded-full bg-gray-700 px-4 py-2 text-center"
-              >
-                {skill}
-              </motion.div>
-            ))}
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          <div className="relative h-96 md:h-full">
+            <Image
+              src={Face}
+              alt="Bazil"
+              fill
+              style={{ objectFit: 'cover' }}
+              className="transition-all duration-300 hover:scale-105"
+            />
           </div>
-        )}
-
-        {activeTab === 'experience' && (
-          <ul className="space-y-4">
-            <li>
-              <h3 className="text-xl font-semibold">Senior Frontend Developer</h3>
-              <p className="text-gray-400">TechCorp Inc. | 2020 - Present</p>
-            </li>
-            <li>
-              <h3 className="text-xl font-semibold">Frontend Developer</h3>
-              <p className="text-gray-400">WebSolutions Ltd. | 2018 - 2020</p>
-            </li>
-          </ul>
-        )}
+          <div className="flex flex-col justify-between p-8 md:p-12">
+            <div>
+              <motion.h1
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.8 }}
+                className="mb-2 text-4xl font-bold text-gray-900"
+              >
+                Bazil
+              </motion.h1>
+              <motion.h2
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+                className="mb-6 text-2xl font-light text-gray-600"
+              >
+                Webdesigner & Photographer
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+                className="mb-8 text-lg text-gray-500"
+              >
+                👋 Hello! I'm a freelance creative based in Paris, France. I specialize in crafting
+                beautiful web experiences and capturing moments through my lens.
+              </motion.p>
+            </div>
+            <div className="space-y-4">
+              {['designer', 'photographer'].map((role) => (
+                <motion.div
+                  key={role}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5, duration: 0.8 }}
+                  onMouseEnter={() => setHovered(role)}
+                  onMouseLeave={() => setHovered('')}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full"
+                >
+                  <Button
+                    variant={role === 'designer' ? 'default' : 'outline'}
+                    className="relative w-full overflow-hidden py-6 text-lg font-semibold transition-all duration-300"
+                  >
+                    <motion.span
+                      initial={{ y: 0 }}
+                      animate={{ y: hovered === role ? -30 : 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      Need a {role}?
+                    </motion.span>
+                    <motion.span
+                      className="absolute inset-0 flex items-center justify-center"
+                      initial={{ y: 30 }}
+                      animate={{ y: hovered === role ? 0 : 30 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      Let's collaborate!
+                    </motion.span>
+                  </Button>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
       </motion.div>
-    </motion.div>
+    </div>
   )
 }
 
-interface TabButtonProps {
-  icon: React.ReactNode
-  label: string
-  isActive: boolean
-  onClick: () => void
-}
-
-const TabButton: React.FC<TabButtonProps> = ({ icon, label, isActive, onClick }) => (
-  <button
-    onClick={onClick}
-    className={`flex items-center space-x-2 rounded-full px-4 py-2 transition-colors ${
-      isActive ? 'bg-blue-500 text-white' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-    }`}
-  >
-    {icon}
-    <span>{label}</span>
-  </button>
-)
-
-export default AboutSection
+About.displayName = 'About'
+export default About

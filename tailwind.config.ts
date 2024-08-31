@@ -82,13 +82,7 @@ const config = {
     require('tailwindcss-animate'),
     require('@tailwindcss/typography'),
     plugin(({ addUtilities }) => {
-      addUtilities({
-        '.text-outline': {
-          color: 'gray',
-          textShadow:
-            '2px 2px 0px black, -2px -2px 0px black, 2px -2px 0px black, -2px 2px 0px black',
-        },
-      })
+      addUtilities({})
     }),
   ],
 } satisfies Config
