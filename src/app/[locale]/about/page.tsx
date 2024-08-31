@@ -5,7 +5,7 @@ import { getMetadata } from '@/utils'
 export async function generateMetadata() {
   const t = await getI18n()
 
-  return getMetadata(t('about'))
+  return getMetadata(t('layout.about'))
 }
 
 export default function AboutPage() {

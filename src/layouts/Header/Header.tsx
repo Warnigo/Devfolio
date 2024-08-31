@@ -2,19 +2,22 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { ArrowDownToLine } from 'lucide-react'
-import { Logo } from '@/components'
-import { Button } from '@/components/ui'
+import { ArrowDownToLine, FileDown } from 'lucide-react'
+import { AnimateButton, Logo } from '@/components'
 import { ROUTES } from '@/constants'
 import { cn } from '@/lib'
+import { useI18n } from '@/locales/client'
 import { getStripLocale } from '@/utils'
 import { menu } from './constants'
 import { SwitcherLanguages } from './SwitcherLanguages'
 import { SwitcherTheme } from './SwitcherTheme'
 
+type TranslationKey = 'layout.home' | 'layout.about' | 'layout.contact' | 'download' | 'resume'
+
 const Header = () => {
   const pathname = usePathname()
   const strippedPathname = getStripLocale(pathname ?? '')
+  const t = useI18n()
 
   return (
     <header className="fixed z-50 w-full border-b bg-background/70 bg-gradient-to-b from-background to-transparent backdrop-blur-lg">
@@ -31,7 +34,7 @@ const Header = () => {
                     'text-primary': strippedPathname === link,
                   })}
                 >
-                  <Link href={link}>{title}</Link>
+                  <Link href={link}>{t(title as TranslationKey)}</Link>
                 </li>
               ))}
             </ul>
@@ -39,10 +42,14 @@ const Header = () => {
         </div>
 
         <div className="flex items-center gap-3">
-          <Button size="icon" className="flex w-full gap-3 px-4">
+          <AnimateButton
+            role={t('download')}
+            roleIcon={<FileDown className="size-4" />}
+            className="flex items-center gap-2"
+          >
             <ArrowDownToLine className="size-4" />
-            <Link href={ROUTES.resume}>Resume</Link>
-          </Button>
+            <Link href={ROUTES.resume}>{t('resume')}</Link>
+          </AnimateButton>
 
           <div>
             <SwitcherTheme />
@@ -57,5 +64,4 @@ const Header = () => {
   )
 }
 
-Header.displayName = 'Header'
 export default Header

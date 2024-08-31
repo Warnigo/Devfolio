@@ -2,18 +2,18 @@ import { ROUTES } from '@/constants'
 
 export const menu = [
   {
-    title: 'Home',
+    title: 'layout.home',
     link: ROUTES.home,
   },
   {
-    title: 'About',
+    title: 'layout.about',
     link: ROUTES.about,
   },
   {
-    title: 'Contact',
+    title: 'layout.contact',
     link: ROUTES.contact,
   },
-]
+] as const
 
 export const switchMode = [
   {

@@ -14,6 +14,11 @@ export default {
     goback: 'Go back',
     backHome: 'Back home',
   },
-  about: 'About',
-  contact: 'Contact',
+  layout: {
+    home: 'Home',
+    about: 'About',
+    contact: 'Contact',
+  },
+  download: 'Download',
+  resume: 'Resume',
 } as const

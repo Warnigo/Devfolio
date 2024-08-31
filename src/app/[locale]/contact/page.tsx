@@ -5,7 +5,7 @@ import { getMetadata } from '@/utils'
 export async function generateMetadata() {
   const t = await getI18n()
 
-  return getMetadata(t('contact'))
+  return getMetadata(t('layout.contact'))
 }
 
 export default function ContactPage() {

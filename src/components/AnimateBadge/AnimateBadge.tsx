@@ -30,7 +30,7 @@ export const AnimateBadge: FC<BadgeProps> = ({
   >
     <Badge
       className={cn(
-        'rounded-full border-2 px-4 py-2 text-sm font-semibold shadow-xl md:text-base',
+        'rounded-full border-2 px-4 py-2 text-sm font-semibold tracking-tighter shadow-xl md:text-base',
         classNameBadge,
       )}
       variant={variant}

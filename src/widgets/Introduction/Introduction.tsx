@@ -40,7 +40,7 @@ const Introduction: FC = () => {
       >
         <div className="relative flex flex-col items-center justify-center gap-12">
           <motion.h1
-            className="relative flex flex-wrap justify-center text-center text-5xl font-extrabold md:text-7xl lg:text-8xl lg:leading-[115px]"
+            className="relative flex flex-wrap justify-center text-center text-5xl font-black md:text-7xl lg:text-8xl lg:leading-[115px]"
             variants={containerAnimation}
             initial="hidden"
             animate={isVisible ? 'show' : 'hidden'}
@@ -51,9 +51,9 @@ const Introduction: FC = () => {
                 variants={itemAnimation}
                 transition={itemTransition}
                 className={cn(
-                  'mb-2 mr-2 inline-block whitespace-pre-wrap bg-clip-text text-primary',
+                  'mb-2 mr-2 inline-block whitespace-pre-wrap bg-clip-text tracking-tighter text-primary',
                   {
-                    'relative text-primary/60':
+                    'relative text-destructive':
                       part === t('home.part') || part === t('home.partSecond'),
                   },
                 )}
