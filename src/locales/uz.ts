@@ -12,7 +12,21 @@ export default {
   notFound: {
     title: '404 - Topilmadi',
     desc: 'Qidirayotgan sahifangiz mavjud emas yoki ko‘chirilgan.',
+    goback: 'Orqaga qaytish',
+    backHome: 'Bosh sahifaga qaytish',
   },
-  about: 'Men haqimda',
-  contact: "Bog'lanish",
+  layout: {
+    home: 'Bosh sahifa',
+    about: 'Men haqimda',
+    contact: "Bog'lanish",
+  },
+  download: 'Yuklab olish',
+  resume: 'Rezyume',
+  workTogether: 'Keling, birga ishlaymiz',
+  direction: "Frontend va dasturiy ta'minot ishlab chiqaruvchi",
+  aboutMeMore: "Men haqimda batafsil ma'lumot",
+  aboutMe: 'Men haqimda',
+  aboutMeShortDesc:
+    "👋 Salom! Men Parijda, Fransiyada joylashgan mustaqil ijodkorman. Men chiroyli veb-tajribalarning yaratilishi va onlar orqali lahzalarni tasvirga olish bo'yicha ixtisoslashganman.",
+  needFrontendQuestion: 'Frontend dasturchisi kerakmi?',
 } as const

@@ -21,4 +21,11 @@ export default {
   },
   download: 'Download',
   resume: 'Resume',
+  workTogether: "Let's work together",
+  direction: 'Frontend & Software developer',
+  aboutMeMore: 'More information about me',
+  aboutMe: 'About me',
+  aboutMeShortDesc:
+    "👋 Hello! I'm a freelance creative based in Paris, France.I specialize in crafting beautiful web experiences and capturing moments through my lens.",
+  needFrontendQuestion: 'Need a Frontend developer?',
 } as const

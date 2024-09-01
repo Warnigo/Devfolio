@@ -25,19 +25,23 @@ export const AnimateButton: FC<Props> = ({
       initial={{ y: 50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3, delay: 0.1 }}
-      className="text-center"
+      className="w-full text-center"
     >
-      <div className="flex items-center justify-center">
+      <div className="flex w-full items-center justify-center">
         <AnimatePresence>
           <motion.div
             onMouseEnter={() => setHovered(role)}
             onMouseLeave={() => setHovered('')}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            className="w-full"
           >
             <Button
               variant={variant}
-              className={cn('relative overflow-hidden transition-all duration-300', buttonVariants)}
+              className={cn(
+                'relative w-full overflow-hidden transition-all duration-300',
+                buttonVariants,
+              )}
             >
               <motion.span
                 initial={{ y: 0 }}

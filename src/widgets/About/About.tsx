@@ -1,100 +1,78 @@
 'use client'
 
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { CircleUser, UserCheck } from 'lucide-react'
 import Face from 'public/fake-face.webp'
-import { Button } from '@/components/ui/button'
+import { AnimateButton } from '@/components'
+import { useIntersectionObserver } from '@/helpers/hooks'
+import { appLocale } from '@/locales/app'
+import { useI18n } from '@/locales/client'
+import { containerVariants, imageVariants, itemVariants } from './motions'
 
 const About: FC = () => {
-  const [hovered, setHovered] = useState('')
+  const t = useI18n()
+  const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 })
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50 p-8">
+    <section className="flex items-center justify-center py-20" ref={ref}>
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="w-full max-w-6xl overflow-hidden rounded-3xl bg-white shadow-2xl"
+        variants={containerVariants}
+        initial="hidden"
+        animate={isVisible ? 'visible' : 'hidden'}
+        className="container w-full overflow-hidden rounded-3xl border bg-background shadow-xl"
       >
         <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="relative h-96 md:h-full">
-            <Image
-              src={Face}
-              alt="Bazil"
-              fill
-              style={{ objectFit: 'cover' }}
-              className="transition-all duration-300 hover:scale-105"
-            />
-          </div>
-          <div className="flex flex-col justify-between p-8 md:p-12">
+          <motion.div
+            className="relative h-96 overflow-hidden md:h-full"
+            variants={imageVariants}
+            whileHover="hover"
+          >
+            <Image src={Face} alt={appLocale.me} fill style={{ objectFit: 'cover' }} />
+          </motion.div>
+
+          <div className="flex flex-col justify-between border-l p-8 md:p-12">
             <div>
-              <motion.h1
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.8 }}
-                className="mb-2 text-4xl font-bold text-gray-900"
-              >
-                Bazil
+              <motion.h1 variants={itemVariants} className="mb-2 text-5xl font-black text-primary">
+                {appLocale.me}
               </motion.h1>
+
               <motion.h2
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.8 }}
-                className="mb-6 text-2xl font-light text-gray-600"
+                variants={itemVariants}
+                className="mb-6 text-2xl font-semibold text-primary/70"
               >
-                Webdesigner & Photographer
+                {t('direction')}
               </motion.h2>
+
               <motion.p
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-                className="mb-8 text-lg text-gray-500"
+                variants={itemVariants}
+                className="mb-8 text-lg font-normal text-primary/70"
               >
-                👋 Hello! I'm a freelance creative based in Paris, France. I specialize in crafting
-                beautiful web experiences and capturing moments through my lens.
+                {t('aboutMeShortDesc')}
               </motion.p>
             </div>
-            <div className="space-y-4">
-              {['designer', 'photographer'].map((role) => (
-                <motion.div
-                  key={role}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.5, duration: 0.8 }}
-                  onMouseEnter={() => setHovered(role)}
-                  onMouseLeave={() => setHovered('')}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full"
-                >
-                  <Button
-                    variant={role === 'designer' ? 'default' : 'outline'}
-                    className="relative w-full overflow-hidden py-6 text-lg font-semibold transition-all duration-300"
-                  >
-                    <motion.span
-                      initial={{ y: 0 }}
-                      animate={{ y: hovered === role ? -30 : 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      Need a {role}?
-                    </motion.span>
-                    <motion.span
-                      className="absolute inset-0 flex items-center justify-center"
-                      initial={{ y: 30 }}
-                      animate={{ y: hovered === role ? 0 : 30 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      Let's collaborate!
-                    </motion.span>
-                  </Button>
-                </motion.div>
-              ))}
-            </div>
+
+            <motion.div
+              variants={itemVariants}
+              className="flex w-full flex-col items-center justify-center gap-3"
+            >
+              <AnimateButton
+                role={t('aboutMeMore')}
+                roleIcon={<CircleUser className="size-4" />}
+                variant="outline"
+              >
+                {t('aboutMe')}
+              </AnimateButton>
+
+              <AnimateButton role={t('workTogether')} roleIcon={<UserCheck className="size-4" />}>
+                {t('needFrontendQuestion')}
+              </AnimateButton>
+            </motion.div>
           </div>
         </div>
       </motion.div>
-    </div>
+    </section>
   )
 }
 
