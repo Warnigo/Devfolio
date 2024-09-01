@@ -6,6 +6,7 @@ import { AnimateBadge } from '@/components'
 import { useIntersectionObserver } from '@/helpers/hooks'
 import { cn } from '@/lib'
 import { useI18n } from '@/locales/client'
+import { style } from './Introduction.style'
 import {
   containerAnimation,
   fadeInAnimation,
@@ -53,10 +54,16 @@ const Introduction: FC = () => {
                 className={cn(
                   'mb-2 mr-2 inline-block whitespace-pre-wrap bg-clip-text tracking-tighter text-primary',
                   {
-                    'relative text-destructive':
+                    'text-outline-sm text-outline-red relative text-destructive':
                       part === t('home.part') || part === t('home.partSecond'),
                   },
                 )}
+                style={{
+                  textShadow:
+                    part === t('home.part') || part === t('home.partSecond')
+                      ? style.textShadow
+                      : 'none',
+                }}
               >
                 {part === t('home.part') && (
                   <AnimateBadge

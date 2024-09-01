@@ -34,6 +34,9 @@ export const AnimateBadge: FC<BadgeProps> = ({
         classNameBadge,
       )}
       variant={variant}
+      style={{
+        textShadow: 'none',
+      }}
     >
       {children}
     </Badge>
