@@ -25,14 +25,14 @@ const About: FC = () => {
       >
         <div className="grid grid-cols-1 md:grid-cols-2">
           <motion.div
-            className="relative h-96 overflow-hidden md:h-full"
+            className="relative h-96 overflow-hidden border-r md:h-full"
             variants={imageVariants}
             whileHover="hover"
           >
             <Image src={Face} alt={appLocale.me} fill style={{ objectFit: 'cover' }} />
           </motion.div>
 
-          <div className="flex flex-col justify-between border-l p-8 md:p-12">
+          <div className="flex flex-col justify-between p-8 md:p-12">
             <div>
               <motion.h1 variants={itemVariants} className="mb-2 text-5xl font-black text-primary">
                 {appLocale.me}
