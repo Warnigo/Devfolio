@@ -2,41 +2,140 @@
     "version": "0.2",
     "language": "en",
     "words": [
-        "mkdirp",
-        "tsmerge",
         "githubusercontent",
-        "streetsidesoftware",
-        "vsmarketplacebadge",
-        "visualstudio",
         "lucide",
         "magicui",
+        "mkdirp",
         "nextjs",
+        "streetsidesoftware",
         "stylelint",
         "svgr",
         "tailwindcss",
         "tanstack",
+        "tsmerge",
+        "visualstudio",
+        "vsmarketplacebadge",
         "Warfurious",
         "Warnigo",
-        "webfolio"
+        "webfolio",
+        "webp"
     ],
     "flagWords": [
         "hte"
     ],
     "languageSettings": [
-    { "languageId": "*",      "locale": "en",              "dictionaries": ["wordsEn"] },
-    { "languageId": "*",      "locale": "uz",              "dictionaries": ["wordsEn", "wordsUz"] },
-    { "languageId": "*",      "locale": "ru",              "dictionaries": ["wordsEnGb", "wordsRu"] },
-    { "languageId": "*",                                   "dictionaries": ["companies", "softwareTerms", "misc"] },
-    { "languageId": "python", "allowCompoundWords": true,  "dictionaries": ["python"]},
-    { "languageId": "go",     "allowCompoundWords": true,  "dictionaries": ["go"] },
-    { "languageId": "javascript",                          "dictionaries": ["typescript", "node"] },
-    { "languageId": "javascriptreact",                     "dictionaries": ["typescript", "node"] },
-    { "languageId": "typescript",                          "dictionaries": ["typescript", "node"] },
-    { "languageId": "typescriptreact",                     "dictionaries": ["typescript", "node"] },
-    { "languageId": "html",                                "dictionaries": ["html", "fonts", "typescript", "css"] },
-    { "languageId": "php",                                 "dictionaries": ["php", "html", "fonts", "css", "typescript"] },
-    { "languageId": "css",                                 "dictionaries": ["fonts", "css"] },
-    { "languageId": "less",                                "dictionaries": ["fonts", "css"] },
-    { "languageId": "scss",                                "dictionaries": ["fonts", "css"] }
+        {
+            "languageId": "*",
+            "locale": "en",
+            "dictionaries": [
+                "wordsEn"
+            ]
+        },
+        {
+            "languageId": "*",
+            "locale": "uz",
+            "dictionaries": [
+                "wordsEn",
+                "wordsUz"
+            ]
+        },
+        {
+            "languageId": "*",
+            "locale": "ru",
+            "dictionaries": [
+                "wordsEnGb",
+                "wordsRu"
+            ]
+        },
+        {
+            "languageId": "*",
+            "dictionaries": [
+                "companies",
+                "softwareTerms",
+                "misc"
+            ]
+        },
+        {
+            "languageId": "python",
+            "allowCompoundWords": true,
+            "dictionaries": [
+                "python"
+            ]
+        },
+        {
+            "languageId": "go",
+            "allowCompoundWords": true,
+            "dictionaries": [
+                "go"
+            ]
+        },
+        {
+            "languageId": "javascript",
+            "dictionaries": [
+                "typescript",
+                "node"
+            ]
+        },
+        {
+            "languageId": "javascriptreact",
+            "dictionaries": [
+                "typescript",
+                "node"
+            ]
+        },
+        {
+            "languageId": "typescript",
+            "dictionaries": [
+                "typescript",
+                "node"
+            ]
+        },
+        {
+            "languageId": "typescriptreact",
+            "dictionaries": [
+                "typescript",
+                "node"
+            ]
+        },
+        {
+            "languageId": "html",
+            "dictionaries": [
+                "html",
+                "fonts",
+                "typescript",
+                "css"
+            ]
+        },
+        {
+            "languageId": "php",
+            "dictionaries": [
+                "php",
+                "html",
+                "fonts",
+                "css",
+                "typescript"
+            ]
+        },
+        {
+            "languageId": "css",
+            "dictionaries": [
+                "fonts",
+                "css"
+            ]
+        },
+        {
+            "languageId": "less",
+            "dictionaries": [
+                "fonts",
+                "css"
+            ]
+        },
+        {
+            "languageId": "scss",
+            "dictionaries": [
+                "fonts",
+                "css"
+            ]
+        }
     ]
 }

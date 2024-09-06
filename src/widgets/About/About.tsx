@@ -5,11 +5,11 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { CircleUser, UserCheck } from 'lucide-react'
 import Face from 'public/fake-face.webp'
-import { AnimateButton } from '@/components'
+import { AnimateButton, WidgetCard } from '@/components'
 import { useIntersectionObserver } from '@/helpers/hooks'
 import { appLocale } from '@/locales/app'
 import { useI18n } from '@/locales/client'
-import { containerVariants, imageVariants, itemVariants } from './motions'
+import { imageVariants, itemVariants } from './motions'
 
 const About: FC = () => {
   const t = useI18n()
@@ -17,12 +17,7 @@ const About: FC = () => {
 
   return (
     <section className="flex items-center justify-center py-20" ref={ref}>
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate={isVisible ? 'visible' : 'hidden'}
-        className="container w-full overflow-hidden rounded-3xl border bg-background shadow-xl"
-      >
+      <WidgetCard isVisible={isVisible}>
         <div className="grid grid-cols-1 md:grid-cols-2">
           <motion.div
             className="relative h-96 overflow-hidden border-r md:h-full"
@@ -71,7 +66,7 @@ const About: FC = () => {
             </motion.div>
           </div>
         </div>
-      </motion.div>
+      </WidgetCard>
     </section>
   )
 }
