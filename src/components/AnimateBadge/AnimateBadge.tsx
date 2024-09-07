@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import { motion } from 'framer-motion'
 import { Badge } from '@/components/ui'
 import { cn } from '@/lib'
@@ -13,32 +13,27 @@ interface BadgeProps {
   rotate: number
 }
 
-export const AnimateBadge: FC<BadgeProps> = ({
-  className,
-  classNameBadge,
-  variant,
-  children,
-  delay,
-  rotate,
-}) => (
-  <motion.div
-    className={className}
-    variants={badgeAnimation(rotate)}
-    initial="initial"
-    animate="animate"
-    transition={{ ...badgeTransition, delay }}
-  >
-    <Badge
-      className={cn(
-        'rounded-full border-2 px-4 py-2 text-sm font-semibold tracking-tighter shadow-xl md:text-base',
-        classNameBadge,
-      )}
-      variant={variant}
-      style={{
-        textShadow: 'none',
-      }}
+export const AnimateBadge: FC<BadgeProps> = memo(
+  ({ className, classNameBadge, variant, children, delay, rotate }) => (
+    <motion.div
+      className={className}
+      variants={badgeAnimation(rotate)}
+      initial="initial"
+      animate="animate"
+      transition={{ ...badgeTransition, delay }}
     >
-      {children}
-    </Badge>
-  </motion.div>
+      <Badge
+        className={cn(
+          'rounded-full border-2 px-4 py-2 text-sm font-semibold tracking-tighter shadow-xl md:text-base',
+          classNameBadge,
+        )}
+        variant={variant}
+        style={{
+          textShadow: 'none',
+        }}
+      >
+        {children}
+      </Badge>
+    </motion.div>
+  ),
 )

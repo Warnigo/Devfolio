@@ -13,7 +13,7 @@ export const Layout = ({ children }: PropsWithChildren) => {
       <I18nProviderClient locale={locale}>
         <Header />
       </I18nProviderClient>
-      <div className="relative">{children}</div>
+      <div className="container relative">{children}</div>
       <Footer />
     </main>
   )

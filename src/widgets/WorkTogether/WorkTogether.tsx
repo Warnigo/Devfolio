@@ -10,10 +10,8 @@ const WorkTogether = () => {
 
   return (
     <section className="flex items-center justify-center" ref={ref}>
-      <WidgetCard isVisible={isVisible}>
-        <div className="text-8xl font-black">
-          <h2>Work Together</h2>
-        </div>
+      <WidgetCard isVisible={isVisible} className="p-10">
+        <h2>{t('workTogether')}</h2>
       </WidgetCard>
     </section>
   )
