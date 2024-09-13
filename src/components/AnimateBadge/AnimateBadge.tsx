@@ -1,14 +1,13 @@
-import { FC, memo } from 'react'
+import { FC, memo, PropsWithChildren } from 'react'
 import { motion } from 'framer-motion'
 import { Badge } from '@/components/ui'
 import { cn } from '@/lib'
 import { badgeAnimation, badgeTransition } from './motion'
 
-interface BadgeProps {
+interface BadgeProps extends PropsWithChildren {
   className?: string
   classNameBadge?: string
   variant?: 'default' | 'secondary' | 'destructive' | 'outline'
-  children: React.ReactNode
   delay: number
   rotate: number
 }

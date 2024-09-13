@@ -1,5 +1,5 @@
 export { AnimateBadge } from './AnimateBadge'
 export { AnimateButton } from './AnimateButton'
+export { Highlighted } from './Highlighted'
 export { Logo } from './Logo'
-export { TitleWithBadge } from './TitleWithBadge'
 export { WidgetCard } from './WidgetCard'
