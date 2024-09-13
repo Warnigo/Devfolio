@@ -1,3 +1,6 @@
+const me = 'Abubakir Shavkatov'
+
 export const appLocale = {
-  me: 'Abubakir Shavkatov',
+  me,
+  metaDescription: `${me}'s webfolio`,
 }

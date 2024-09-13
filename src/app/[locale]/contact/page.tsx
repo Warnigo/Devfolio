@@ -1,6 +1,6 @@
+import { getMetadata } from '@/helpers/utils'
 import { getI18n } from '@/locales/server'
-import { Contact } from '@/pages/Contact'
-import { getMetadata } from '@/utils'
+import { Contact } from '@/modules/Contact'
 
 export async function generateMetadata() {
   const t = await getI18n()

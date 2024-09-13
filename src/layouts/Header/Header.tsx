@@ -5,17 +5,12 @@ import { usePathname } from 'next/navigation'
 import { ArrowDownToLine, FileDown } from 'lucide-react'
 import { AnimateButton, Logo } from '@/components'
 import { ROUTES } from '@/constants'
+import { useHeaderScroll } from '@/helpers/hooks'
+import { getStripLocale } from '@/helpers/utils'
 import { cn } from '@/lib'
 import { useI18n } from '@/locales/client'
-import { getStripLocale } from '@/utils'
+import { AnimatedContainer, AnimatedWrapper } from '@/shared/motion'
 import { menu } from './constants'
-import {
-  AnimatedContainer,
-  AnimatedLogo,
-  AnimatedMenuItem,
-  AnimatedWrapper,
-  useHeaderScroll,
-} from './helpers'
 import { SwitcherLanguages } from './SwitcherLanguages'
 import { SwitcherTheme } from './SwitcherTheme'
 
@@ -31,21 +26,21 @@ const Header = () => {
     <AnimatedContainer isScrolled={isScrolled}>
       <div className="container flex items-center justify-between py-2">
         <div className="flex items-center gap-8">
-          <AnimatedLogo>
+          <AnimatedWrapper>
             <Logo className="size-12 text-primary" />
-          </AnimatedLogo>
+          </AnimatedWrapper>
 
           <nav>
             <ul className="flex items-center justify-center gap-3">
               {menu.map(({ title, link }) => (
-                <AnimatedMenuItem
+                <AnimatedWrapper
                   key={title}
                   className={cn('text-primary/70 hover:text-primary', {
                     'text-primary': strippedPathname === link,
                   })}
                 >
                   <Link href={link}>{t(title as TranslationKey)}</Link>
-                </AnimatedMenuItem>
+                </AnimatedWrapper>
               ))}
             </ul>
           </nav>
@@ -74,4 +69,5 @@ const Header = () => {
   )
 }
 
+Header.displayName = 'Header'
 export default Header

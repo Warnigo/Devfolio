@@ -3,11 +3,12 @@ import '@/styles/globals.css'
 import { PropsWithChildren } from 'react'
 import { Metadata } from 'next'
 import { Layout } from '@/layouts'
+import { appLocale } from '@/locales/app'
 import { Provider } from '@/providers'
 
 export const metadata: Metadata = {
-  title: 'Abubakir Shavkatov',
-  description: "Abubakir Shavkatov's webfolio",
+  title: appLocale.me,
+  description: appLocale.metaDescription,
 }
 
 export default function RootLayout({ children }: PropsWithChildren) {
