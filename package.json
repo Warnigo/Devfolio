@@ -4,8 +4,17 @@
   "private": true,
   "sideEffects": false,
   "type": "module",
+  "author": {
+    "name": "Warnigo Warfurious",
+    "url": "https://warnigo.uz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Warnigo/Webfolio"
+  },
   "scripts": {
-    "dev": "node scripts/dev.mjs && next dev",
+    "dev": "next dev",
+    "predev": "node scripts/dev.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -89,6 +98,7 @@
     "typescript": "5.5.4"
   },
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=20.0.0",
+    "pnpm": ">=9"
   }
 }

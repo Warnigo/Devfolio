@@ -8,7 +8,8 @@
   "prettier.trailingComma": "all",
 
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "always"
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
   },
 
   "emmet.includeLanguages": {
