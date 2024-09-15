@@ -3,6 +3,7 @@
 import { FC } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { AnimateBadge, Highlighted, ScrollPrompt } from '@/components'
+import { BackgroundPattern } from '@/components/BackgroundPattern'
 import { Badge } from '@/components/ui'
 import { useIntersectionObserver } from '@/helpers/hooks'
 import { useI18n } from '@/locales/client'
@@ -58,6 +59,8 @@ const Introduction: FC = () => {
       className="relative h-full min-h-screen overflow-hidden"
       style={{ opacity, scale }}
     >
+      <BackgroundPattern src="/logo.svg" />
+
       <div className="container flex min-h-screen items-center justify-center px-4 py-20">
         <motion.div
           className="relative flex flex-col items-center justify-center gap-12"
