@@ -1,5 +1,7 @@
 export { AnimateBadge } from './AnimateBadge'
 export { AnimateButton } from './AnimateButton'
 export { Highlighted } from './Highlighted'
+export { Icons } from './Icons'
 export { Logo } from './Logo'
+export { ScrollPrompt } from './ScrollPrompt'
 export { WidgetCard } from './WidgetCard'

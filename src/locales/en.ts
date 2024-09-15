@@ -5,6 +5,7 @@ export default {
       'Revolutionizing web interactions with top-tier frontend expertise. I craft beautiful, responsive, and user-friendly applications that make a lasting impression. Partner with me to turn your ideas into reality with precision and creativity.',
     highlightFrontend: 'Effortless',
     highlightBackend: 'Creating',
+    scrollDown: 'Scroll down',
   },
   frontend: 'Frontend',
   backend: 'Backend',

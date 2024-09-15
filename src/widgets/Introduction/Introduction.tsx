@@ -1,15 +1,21 @@
 'use client'
 
 import { FC } from 'react'
-import { motion } from 'framer-motion'
-import { AnimateBadge, Highlighted } from '@/components'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { AnimateBadge, Highlighted, ScrollPrompt } from '@/components'
+import { Badge } from '@/components/ui'
 import { useIntersectionObserver } from '@/helpers/hooks'
 import { useI18n } from '@/locales/client'
+import { AnimatedWrapper, MotionBox, ScaleInWrapper } from '@/shared/motion'
+import { introductionSkills } from './constants'
 
 const Introduction: FC = () => {
   const t = useI18n()
   const title = t('home.title')
   const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 })
+  const { scrollYProgress } = useScroll()
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8])
 
   const textShadow = '4px 4px 0px rgba(255, 0, 0, 0.5)'
 
@@ -47,16 +53,11 @@ const Introduction: FC = () => {
   }
 
   return (
-    <section ref={ref} className="relative min-h-screen overflow-hidden">
-      <div
-        className="absolute inset-0 bg-center bg-no-repeat opacity-[0.03]"
-        style={{
-          WebkitMask: `url('/logo.svg') center / contain no-repeat`,
-          mask: `url('/logo.svg') center / contain no-repeat`,
-          backgroundColor: 'hsl(var(--primary))',
-        }}
-      />
-
+    <motion.section
+      ref={ref}
+      className="relative h-full min-h-screen overflow-hidden"
+      style={{ opacity, scale }}
+    >
       <div className="container flex min-h-screen items-center justify-center px-4 py-20">
         <motion.div
           className="relative flex flex-col items-center justify-center gap-12"
@@ -66,19 +67,32 @@ const Introduction: FC = () => {
         >
           <Highlighted title={title} highlights={highlights} visible={isVisible} />
 
-          <motion.div
-            className="max-w-2xl"
-            initial={{ opacity: 0, y: 50 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.5, duration: 0.8, type: 'spring' }}
-          >
+          <MotionBox isVisible={isVisible}>
             <p className="text-center text-lg font-medium text-primary md:text-xl">
               {t('home.description')}
             </p>
-          </motion.div>
+          </MotionBox>
+
+          <div className="flex flex-wrap justify-center gap-4">
+            {introductionSkills.map((skill, index) => (
+              <AnimatedWrapper key={skill.name} className="cursor-pointer">
+                <ScaleInWrapper index={index}>
+                  <Badge
+                    className="flex items-center gap-2 rounded-full px-4 py-2"
+                    variant="outline"
+                  >
+                    <span>{skill.icon}</span>
+                    <span className="text-base">{skill.name}</span>
+                  </Badge>
+                </ScaleInWrapper>
+              </AnimatedWrapper>
+            ))}
+          </div>
         </motion.div>
       </div>
-    </section>
+
+      <ScrollPrompt text={t('home.scrollDown')} />
+    </motion.section>
   )
 }
 
