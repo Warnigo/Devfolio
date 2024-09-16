@@ -11,10 +11,11 @@ const WorkTogether = () => {
 
   return (
     <section className="flex items-center justify-center" ref={ref}>
-      <WidgetCard isVisible={isVisible} className="flex items-center justify-center p-10">
-        <motion.div>
-          <h2 className="text-center text-9xl font-black uppercase">{t('workTogether')}</h2>
-        </motion.div>
+      <WidgetCard
+        isVisible={isVisible}
+        className="flex flex-col items-center justify-center gap-5 p-10"
+      >
+        <h2 className="text-center text-4xl font-black uppercase">{t('workTogether')}</h2>
 
         <motion.div className="rounded-md border p-5">form</motion.div>
       </WidgetCard>
