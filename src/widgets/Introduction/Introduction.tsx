@@ -1,8 +1,8 @@
 'use client'
 
 import { FC } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { AnimateBadge, Highlighted, ScrollPrompt } from '@/components'
+import { motion } from 'framer-motion'
+import { AnimateBadge, HeroSection, Highlighted, ScrollPrompt } from '@/components'
 import { BackgroundPattern } from '@/components/BackgroundPattern'
 import { Badge } from '@/components/ui'
 import { useIntersectionObserver } from '@/helpers/hooks'
@@ -14,9 +14,6 @@ const Introduction: FC = () => {
   const t = useI18n()
   const title = t('introduction.title')
   const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 })
-  const { scrollYProgress } = useScroll()
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8])
 
   const textShadow = '4px 4px 0px rgba(255, 0, 0, 0.5)'
 
@@ -54,11 +51,7 @@ const Introduction: FC = () => {
   }
 
   return (
-    <motion.section
-      ref={ref}
-      className="relative h-full min-h-screen overflow-hidden"
-      style={{ opacity, scale }}
-    >
+    <HeroSection sectionRef={ref}>
       <BackgroundPattern src="/logo.svg" />
 
       <div className="container flex min-h-screen items-center justify-center px-4 py-20">
@@ -95,7 +88,7 @@ const Introduction: FC = () => {
       </div>
 
       <ScrollPrompt text={t('introduction.scrollDown')} />
-    </motion.section>
+    </HeroSection>
   )
 }
 

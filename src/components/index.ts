@@ -1,5 +1,6 @@
 export { AnimateBadge } from './AnimateBadge'
 export { AnimateButton } from './AnimateButton'
+export { HeroSection } from './HeroSection'
 export { Highlighted } from './Highlighted'
 export { Icons } from './Icons'
 export { Logo } from './Logo'
