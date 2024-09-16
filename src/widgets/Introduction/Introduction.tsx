@@ -12,7 +12,7 @@ import { introductionSkills } from './constants'
 
 const Introduction: FC = () => {
   const t = useI18n()
-  const title = t('home.title')
+  const title = t('introduction.title')
   const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 })
   const { scrollYProgress } = useScroll()
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
@@ -21,7 +21,7 @@ const Introduction: FC = () => {
   const textShadow = '4px 4px 0px rgba(255, 0, 0, 0.5)'
 
   const highlights = {
-    [t('home.highlightBackend')]: {
+    [t('introduction.highlightBackend')]: {
       decoration: (
         <AnimateBadge
           className="-translate-y-full translate-x-1/4"
@@ -36,7 +36,7 @@ const Introduction: FC = () => {
       className: 'text-destructive',
       textShadow,
     },
-    [t('home.highlightFrontend')]: {
+    [t('introduction.highlightFrontend')]: {
       decoration: (
         <AnimateBadge
           className="-translate-x-1/4 -translate-y-full"
@@ -72,7 +72,7 @@ const Introduction: FC = () => {
 
           <MotionBox isVisible={isVisible}>
             <p className="text-center text-lg font-medium text-primary md:text-xl">
-              {t('home.description')}
+              {t('introduction.description')}
             </p>
           </MotionBox>
 
@@ -94,7 +94,7 @@ const Introduction: FC = () => {
         </motion.div>
       </div>
 
-      <ScrollPrompt text={t('home.scrollDown')} />
+      <ScrollPrompt text={t('introduction.scrollDown')} />
     </motion.section>
   )
 }
